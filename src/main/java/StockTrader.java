@@ -21,6 +21,20 @@ public class StockTrader
 		return upperCase;
 	}
 	
+	public Double sellAtMarket(String symbol, Double quantity)
+	{
+		if(stockTraderService.exists(symbol))
+		{
+			Double price = stockTraderService.getPrice(symbol);
+			Trade trade = stockTraderService.sell(symbol, price);
+			if(trade.isSuccess())
+			{
+				return trade.total();
+			}
+		}
+		return null;
+	}
+	
 	public StockTraderService getStockTraderService()
 	{
 		return stockTraderService;

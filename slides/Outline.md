@@ -6,6 +6,9 @@ Unit Testing Groovy with Java
 		* Dynamic language running on JVM
 		* Supports Java syntax
 	* What is Groovy good at?
+		* Scripting
+		* DSLs
+		* Testing
 * Problems with Java Unit Testing
 	* High Ceremony
 	* Syntax

@@ -1,6 +1,8 @@
 import org.junit.*
 import groovy.util.GroovyTestCase
 
+import static Trade.*
+
 class StockTraderTest extends GroovyTestCase
 {
 	StockTrader stockTrader = new StockTrader();
@@ -19,7 +21,7 @@ class StockTraderTest extends GroovyTestCase
 	{
 		def stocks = ['APPL', 'GOOG', 'MSFT', 'INTC', 'IBM', 'ORCL', 'ADBE', 'RIMM', 'HPQ', 'CSCO']
 		def service = [ 'getMostActive' : { return stocks } ] as StockTraderService
-		stockTrader.stockTraderService=service
+		stockTrader.stockTraderService = service
 		assertArrayEquals(stocks.toArray(), stockTrader.tenMostActive().toArray())
 	}
 
@@ -28,8 +30,21 @@ class StockTraderTest extends GroovyTestCase
 	{
 		def stocks = ['APPL', 'GOOG', 'MSFT', 'INTC', 'IBM', 'ORCL', 'ADBE', 'RIMM', 'HPQ', 'csco']
 		def service = [ 'getMostActive' : { return stocks } ] as StockTraderService
-		stockTrader.stockTraderService=service
+		stockTrader.stockTraderService = service
 		def result = stockTrader.tenMostActive()
 		assert stocks.collect{ it.toUpperCase() } == result
+	}
+	
+	@Test
+	void test_sell_at_market()
+	{
+		def trade = new TradeImpl(Type.sell, 100d, 100.50d, true)
+		def expando = new Expando()
+		expando.getPrice = { return 100.50d }
+		expando.sell = { s, q -> return trade }
+		expando.exists = { return true }
+		stockTrader.stockTraderService = expando as StockTraderService
+		def result = stockTrader.sellAtMarket("MSFT", 100);
+		assert (100.50 * 100) == result
 	}
 }
