@@ -8,6 +8,12 @@ class StockTraderTest extends GroovyTestCase
 {
 	StockTrader stockTrader = new StockTrader();
 	
+	@Before
+	void setUp()
+	{
+		stockTrader = new StockTrader();
+	}
+	
 	@Test
 	void test_buystock_valid()
 	{
@@ -39,13 +45,17 @@ class StockTraderTest extends GroovyTestCase
 	@Test
 	void test_sell_at_market()
 	{
+		println "hello 1"
 		def trade = new TradeImpl(Type.sell, 100d, 100.50d, true)
-		def expando = new Expando()
-		expando.getPrice = { return 100.50d }
-		expando.sell = { s, q -> return trade }
-		expando.exists = { return true }
-		stockTrader.stockTraderService = expando as StockTraderService
-		def result = stockTrader.sellAtMarket("MSFT", 100);
-		assert (100.50 * 100) == result
+		//start with empty map
+		def service = [ 'sell' : { s, q -> return trade }, 
+						'getPrice' : { return 100.50d },
+						'exists' : { s -> if( 'MSFT' == s ) { return true } else { return false } } 
+					  ] as StockTraderService
+		//necessary to include parameters when more than one
+		stockTrader.stockTraderService = service
+		assert (100.50 * 100) == stockTrader.sellAtMarket("MSFT", 100);
+		assertNull stockTrader.sellAtMarket("BLAH", 100);
 	}
+	
 }
