@@ -22,17 +22,18 @@ Unit Testing Groovy with Java
 			* Difficult to use
 			* Hard to read syntax
 * Groovy Solutions
-	* Collection Testing
-		* assertArrayEquals
-		* asserts 
 	* Native Syntax for Lists and Maps
 		* Easily create lists and maps with low ceremony
 		* Ranges
 		* .each()
-	* Expando
-		* Easily create dynamic objects
+		* .collect()
+	* Collection Testing
+		* assertArrayEquals
+		* asserts 
 	* Closures
 		* Create inline functions for processing
+	* Expando
+		* Easily create dynamic objects
 	* As Operator
 		* Turn a map into an interface implementation!
 		* Mock only what you need

@@ -1,4 +1,5 @@
 import org.junit.*
+
 import groovy.util.GroovyTestCase
 
 import static Trade.*
