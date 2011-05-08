@@ -8,8 +8,9 @@ repositories {
 dependencies {
     groovy localGroovy()
     testCompile localGroovy()
+    testCompile 'org.mockito:mockito-all:1.8.5'
     groovy group: 'org.apache.ivy', name:'ivy', version:'2.2.0' 
-    groovy group: 'junit', name:'junit', version:'4.8.2'
+    groovy group: 'junit', name: 'junit', version: '4.8.2'
 }
 
 configurations.runtime.exclude group:'org.codehaus.groovy'

@@ -28,8 +28,7 @@ Unit Testing Groovy with Java
 		* .each()
 		* .collect()
 	* Collection Testing
-		* assertArrayEquals
-		* asserts 
+		* assertArrayEquals vs easy asserts 
 	* Closures
 		* Create inline functions for processing
 	* Expando

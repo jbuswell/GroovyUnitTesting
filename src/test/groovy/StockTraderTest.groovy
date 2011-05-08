@@ -45,9 +45,7 @@ class StockTraderTest extends GroovyTestCase
 	@Test
 	void test_sell_at_market()
 	{
-		println "hello 1"
 		def trade = new TradeImpl(Type.sell, 100d, 100.50d, true)
-		//start with empty map
 		def service = [ 'sell' : { s, q -> return trade }, 
 						'getPrice' : { return 100.50d },
 						'exists' : { s -> if( 'MSFT' == s ) { return true } else { return false } } 
