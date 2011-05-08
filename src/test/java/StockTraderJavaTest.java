@@ -66,7 +66,7 @@ public class StockTraderJavaTest
 		assertArrayEquals(upperCaseStocks.toArray(), stockTrader.tenMostActive().toArray());
 	}
 	
-	
+	//Can't duplicate functionality of tracking which stocks requested
 	@Test
 	public void test_sell_at_market()
 	{
