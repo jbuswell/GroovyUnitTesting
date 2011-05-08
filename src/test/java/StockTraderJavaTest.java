@@ -80,6 +80,4 @@ public class StockTraderJavaTest
 		assertEquals((100.50 * 100), stockTrader.sellAtMarket("MSFT", 100d), 0.0);
 		assertNull(stockTrader.sellAtMarket("BLAH", 100d));
 	}
-	
-
 }

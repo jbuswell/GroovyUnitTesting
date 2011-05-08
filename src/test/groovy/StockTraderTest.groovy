@@ -46,14 +46,18 @@ class StockTraderTest extends GroovyTestCase
 	void test_sell_at_market()
 	{
 		def trade = new TradeImpl(Type.sell, 100d, 100.50d, true)
+		//track stocks requested -- impossible to do in Java
+		//without creating your own mocks
+		def stocksList = []
+		//necessary to include parameters when more than one
 		def service = [ 'sell' : { s, q -> return trade }, 
 						'getPrice' : { return 100.50d },
-						'exists' : { s -> if( 'MSFT' == s ) { return true } else { return false } } 
+						'exists' : { s -> stocksList.add(s); if( 'MSFT' == s ) { return true } else { return false } } 
 					  ] as StockTraderService
-		//necessary to include parameters when more than one
 		stockTrader.stockTraderService = service
 		assert (100.50 * 100) == stockTrader.sellAtMarket("MSFT", 100);
 		assertNull stockTrader.sellAtMarket("BLAH", 100);
+		assert ['MSFT', 'BLAH'] == stocksList
 	}
 	
 }
