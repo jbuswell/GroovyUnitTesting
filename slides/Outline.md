@@ -1,6 +1,13 @@
 Unit Testing Groovy with Java
 ---
-
+* Goals of the Talk
+	* Understanding of Need for Groovy in Unit Testing
+	* Ability to Start Using Groovy to Unit Test
+	* Increased Desire to Test and Use Other Languages
+* Unit Testing
+	* Goals of Unit Testing
+	* Best Practices
+	* Test Driven Development 
 * Groovy Intro
 	* What is Groovy?
 		* Dynamic language running on JVM

@@ -44,7 +44,7 @@ public class StockTraderJavaTest
 	{
 		//Can not abstract due to last element being different
 		List<String> stocks = new ArrayList<String>();
-		stocks.add("APPL");
+		stocks.add("AAPL");
 		stocks.add("GOOG");
 		stocks.add("MSFT");
 		stocks.add("INTC");
