@@ -20,3 +20,4 @@ Install Tools:
 Run Build:
   gradle build
   the unit test reports are in:  build/reports/tests
+  use --info to show more information about the run
