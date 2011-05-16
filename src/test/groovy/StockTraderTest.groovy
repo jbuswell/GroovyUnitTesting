@@ -6,7 +6,7 @@ import static Trade.*
 
 class StockTraderTest extends GroovyTestCase
 {
-	StockTrader stockTrader = new StockTrader();
+	StockTrader stockTrader;
 	
 	@Before
 	void setUp()
