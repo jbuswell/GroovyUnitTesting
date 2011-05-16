@@ -1,7 +1,22 @@
 This repository contains the code and slides for a presentation about using Groovy to test Java code.
 
+Presentation:
+The original presentation is in Keynote, but there is an exported PowerPoint deck if you do not have Keynote.
+
 Tools needed:
-Git 
-Groovy
-Java
-Gradle
+  Git 
+  Groovy
+  Java
+  Gradle
+
+Install Tools:
+  On Mac OS X:
+    If you do not have Homebrew install it (https://github.com/mxcl/homebrew)
+    Git: brew install git
+    Groovy: brew install groovy
+    Java: brew install java
+    Gradle: brew install gradle
+
+Run Build:
+  gradle build
+  the unit test reports are in:  build/reports/tests
